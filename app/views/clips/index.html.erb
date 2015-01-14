@@ -1,0 +1,9 @@
+ <H1>LIST OF CLIPS:</H1>
+
+<% @clips.each do |clip| %>
+	<iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+	<br>
+<% end %>
+
+
+ <iframe width="560" height="315" src="//www.youtube.com/embed/BMqjfTzPTkw" frameborder="0" allowfullscreen></iframe>

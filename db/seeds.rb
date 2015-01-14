@@ -12,7 +12,7 @@ end
 p "seeds created"
 
 
-Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M")
+Clip.create(URL: "https://www.youtube.com/embed/watch?v=ZCx0X2YSd1M")
 
 Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA")
 
