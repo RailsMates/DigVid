@@ -3,4 +3,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :favorite_clips
   has_many :favorites, through: :favorite_clips, source: :clip
+
+  validates :gender, :inclusion => %w(male female)
+
 end
