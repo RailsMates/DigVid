@@ -12,9 +12,9 @@ end
 p "seeds created"
 
 
-<<<<<<< Updated upstream
+
 Clip.create(URL: "https://www.youtube.com/embed/watch?v=ZCx0X2YSd1M")
-=======
+
 Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M")
 Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA")
 Clip.create(URL: "https://www.youtube.com/watch?v=spxg0O05kiA")
@@ -27,7 +27,7 @@ Clip.create(URL: "https://www.youtube.com/watch?v=XIQNngEnKU0")
 Clip.create(URL: "https://www.youtube.com/watch?v=Im8zYhFB0JA")
 Clip.create(URL: "https://www.youtube.com/watch?v=d7R7q1lSZfs")
 Clip.create(URL: "https://www.youtube.com/watch?v=fUis9yny_lI")
->>>>>>> Stashed changes
+
 
 Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M")
 Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA")
