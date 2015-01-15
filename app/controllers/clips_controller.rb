@@ -1,14 +1,17 @@
 class ClipsController < ApplicationController
-	before_action :set_clip, only: [:favorite]
+	before_action :set_clip, only: [:favorite, :unfavorite]
 
 	def index
 		@clips = Clip.paginate(:page => params[:page])
 	end
 
+	def pick
+	end
+
 	def search
 	end
 
-	def waitings
+	def pick
 	end
 
 	def show
@@ -25,19 +28,21 @@ class ClipsController < ApplicationController
 	end
 
 	def favorite
-		if FavoriteClip.where(id: @clip.id).empty?
-      	current_user.favorites << @clip
-      	respond_to do |format|
-      		format.html { redirect_to :back }
-      		format.json { head :no_content }
-   		end
-   		else 
+   		current_user.favorites << @clip
    		respond_to do |format|
       		format.html { redirect_to :back }
       		format.json { head :no_content }
    		end
-   	end
 	end
+
+	def unfavorite
+   		current_user.favorites.delete(@clip)	
+   		respond_to do |format|
+      		format.html { redirect_to :root }
+      		format.json { head :no_content }
+   		end
+	end
+
 
 	def update
 		

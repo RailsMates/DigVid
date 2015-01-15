@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :clips do
   put :favorite, on: :member
   end
+  resources :clips do
+  put :unfavorite, on: :member
+  end
 
   get '/waiting' => "clips#pick"
   get '/search' => "clips#search"
