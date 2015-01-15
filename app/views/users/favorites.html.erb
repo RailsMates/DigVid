@@ -1,0 +1,9 @@
+<b>FAVORITES:</b><br>
+<% if @clips.size == 0 %>
+<%= p "No favorites yet." %>
+<% else %>
+<% @clips.each do |clip| %>
+	<iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+	<br>
+<% end %>
+<% end %>
