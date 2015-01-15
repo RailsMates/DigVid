@@ -1,9 +1,10 @@
- <H1>LIST OF CLIPS:</H1>
+
+ <H1>LIST OF CLIPS:</H1><br>
 
 <% @clips.each do |clip| %>
-	<iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
-	<br>
+Added at: <%= clip.created_at %>
+<center><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe></center>
 <% end %>
 
+<%= will_paginate @clips %>
 
- <iframe width="560" height="315" src="//www.youtube.com/embed/BMqjfTzPTkw" frameborder="0" allowfullscreen></iframe>

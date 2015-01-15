@@ -1,7 +1,7 @@
 class ClipsController < ApplicationController
 
 	def index
-		@clips = Clip.all
+		@clips = Clip.paginate(:page => params[:page])
 	end
 
 	def pick

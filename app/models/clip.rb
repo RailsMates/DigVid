@@ -5,9 +5,6 @@ class Clip < ActiveRecord::Base
 	has_many :clip_categories
 	has_many :categories, through: :clip_categories, source: :category
 
-# def modify
-#   a=self.URL.split('=').last
-#   p '//www.youtube.com/embed/'+a.to_s
-# end
+	self.per_page = 10
 
 end

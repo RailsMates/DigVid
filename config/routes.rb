@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   get '/waiting' => "clips#pick"
   get '/search' => "clips#search"
-  get '/waiting' => "clips#pick"
   get '/my_account' => "users#show"
   get '/user/:username' => "users#show"
   get '/add_clip' => "clips#create"
