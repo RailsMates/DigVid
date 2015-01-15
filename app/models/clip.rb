@@ -5,6 +5,8 @@ class Clip < ActiveRecord::Base
 	has_many :clip_categories
 	has_many :categories, through: :clip_categories, source: :category
 
+	belongs_to :user
+	
 	self.per_page = 10
 
 end

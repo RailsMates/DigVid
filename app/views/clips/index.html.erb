@@ -1,9 +1,15 @@
-
+ <p id="notice"><%= notice %></p>
  <center><H1>LIST OF CLIPS:</H1><br><center>
 
 <% @clips.each do |clip| %>
 Added at: <%= clip.created_at %>
-<center><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe></center>
+<center><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+	<br>
+	  <% if current_user %>
+ 	 <%= link_to "Add to favorites", favorite_clip_path(clip), method: :put %>
+ 	 <br><br>
+</center>
+<% end %>
 <% end %>
 
 <%= will_paginate @clips %>
