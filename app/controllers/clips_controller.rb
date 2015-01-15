@@ -5,13 +5,10 @@ class ClipsController < ApplicationController
 		@clips = Clip.paginate(:page => params[:page])
 	end
 
-	def pick
-	end
-
 	def search
 	end
 
-	def pick
+	def waitings
 	end
 
 	def show
@@ -28,11 +25,18 @@ class ClipsController < ApplicationController
 	end
 
 	def favorite
+		if FavoriteClip.where(id: @clip.id).empty?
       	current_user.favorites << @clip
       	respond_to do |format|
       		format.html { redirect_to :back }
       		format.json { head :no_content }
    		end
+   		else 
+   		respond_to do |format|
+      		format.html { redirect_to :back }
+      		format.json { head :no_content }
+   		end
+   	end
 	end
 
 	def update

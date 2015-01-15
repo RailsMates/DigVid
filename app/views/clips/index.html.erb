@@ -6,11 +6,18 @@ Added at: <%= clip.created_at %>
 <center><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
 	<br>
 	  <% if current_user %>
+	  <% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
  	 <%= link_to "Add to favorites", favorite_clip_path(clip), method: :put %>
  	 <br><br>
+ 	 <% else %>
+ 	 <%= link_to "In favorites", user_favorites_path %> <br><br>
+
+
 </center>
 <% end %>
 <% end %>
+<% end %>
+
 
 <%= will_paginate @clips %>
 
