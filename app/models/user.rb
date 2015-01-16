@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   has_many :favorite_clips
   has_many :favorites, through: :favorite_clips, source: :clip
 
-  #validates :gender, :inclusion => %w(male female)
+  validates :gender, :inclusion => %w(Male Female)
+  validates :name, presence: true, length: { minimum: 2 } 
+
+
   has_many :clips
 end
