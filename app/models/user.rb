@@ -1,12 +1,16 @@
 class User < ActiveRecord::Base
+  validates :gender, :inclusion => %w(Male Female)
+  validates :name, presence: true, length: { minimum: 2 }
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
   has_many :favorite_clips
   has_many :favorites, through: :favorite_clips, source: :clip
 
-  validates :gender, :inclusion => %w(Male Female)
-  validates :name, presence: true, length: { minimum: 2 } 
+  has_many :friendships
+  has_many :friends, :through => :friendships 
 
-
-  has_many :clips
+  has_many :liked_clips
+  has_many :clips, through: :liked_clips, source: :clip
 end

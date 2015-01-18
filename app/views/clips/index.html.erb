@@ -1,23 +1,30 @@
- <p id="notice"><%= notice %></p>
- <center><H1>LIST OF CLIPS:</H1><br><center>
+<center><H1>LIST OF CLIPS:</H1><br><center>
 
 <% @clips.each do |clip| %>
-Added at: <%= clip.created_at %>
-<center><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+<center>
+	<b><%= clip.name %></b>
+	<br><i>Added at: <%= clip.created_at.strftime("%d %b. %Y") %></i>
+	<br><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
 	<br>
-	  <% if current_user %>
-	  <% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
- 	 <%= link_to "Add to favorites", favorite_clip_path(clip), method: :put %>
- 	 <br><br>
- 	 <% else %>
- 	 <%= link_to "In favorites", user_favorites_path %> <br><br>
+	<% if current_user %>
+	  	<% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+ 	 		<%= link_to "Add to favorites", favorite_clip_path(clip), method: :put %>
+ 	 		<br><br>
+ 	 	<% else %>
+ 	 		<%= link_to "In favorites", user_favorites_path %> <br><br>
 
-
+		<% end %>
+        <%= link_to like_clip_path(clip.id), class: '.clip-vote', :remote => true do %>
+      	LIKE 
+        <% end %>
+		Liked: <%= clip.counter %>
+		 <%= link_to dislike_clip_path(clip.id), class: '.clip-vote', :remote => true do %>
+      	 DISLIKE
+        <% end %>
+	<% end %>
+	
 </center>
+<br>
 <% end %>
-<% end %>
-<% end %>
-
 
 <%= will_paginate @clips %>
-

@@ -1,27 +1,11 @@
 class ClipsController < ApplicationController
-	before_action :set_clip, only: [:favorite, :unfavorite]
+	before_action :authenticate_user!, only: [:favorite, :unfavorite , :upvote, :downvote]
+	before_action :set_clip, only: [:favorite, :unfavorite, :upvote, :downvote]
 
 	def index
 		@clips = Clip.paginate(:page => params[:page])
 	end
 
-	def pick
-	end
-
-	def search
-	end
-
-	def pick
-	end
-
-	def show
-	end
-
-	def top	
-	end
-
-	def cat_top
-	end
 
 	def find
 		 @clip = current_user.favorites.where(clip_id: params[:id])
@@ -43,6 +27,22 @@ class ClipsController < ApplicationController
    		end
 	end
 
+
+	def upvote
+	   if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank?
+	   	 @clip.counter += 1
+	   	 @clip.save
+	   	 current_user.liked_clips << LikedClip.create(user_id: current_user.id, clip_id: @clip.id)
+	   end
+	end
+
+	def downvote
+		if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank?
+	   	 @clip.counter -= 1 
+	   	 @clip.save
+	   	 current_user.liked_clips << LikedClip.create(user_id: current_user.id, clip_id: @clip.id)
+	   end
+	end
 
 	def update
 		

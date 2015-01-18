@@ -1,0 +1,7 @@
+<b> LIST OF YOUR FRIENDS:</b>
+<% if @friends.size == 0 %>
+<%= p "You have no added Friends yet." %>
+<% @friends.each do |friend| %><br>
+<%= friend.username %>
+<% end %>
+<% end %>
