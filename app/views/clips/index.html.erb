@@ -8,17 +8,29 @@
 	<br>
 	<% if current_user %>
 	  	<% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+<<<<<<< Updated upstream
  	 		<%= link_to "Add to favorites", favorite_clip_path(clip), method: :put %>
+=======
+ 	 		<%= link_to "Add to favorites", favorite_clip_path(clip, act: "favorite"), :remote => true %>
+>>>>>>> Stashed changes
  	 		<br><br>
  	 	<% else %>
  	 		<%= link_to "In favorites", user_favorites_path %> <br><br>
 
 		<% end %>
+<<<<<<< Updated upstream
         <%= link_to like_clip_path(clip.id), class: '.clip-vote', :remote => true do %>
       	LIKE 
         <% end %>
 		Liked: <%= clip.counter %>
 		 <%= link_to dislike_clip_path(clip.id), class: '.clip-vote', :remote => true do %>
+=======
+        <%= link_to vote_clip_path(clip.id, act: "upvote"), class: '.clip-vote', :remote => true do %>
+      	LIKE 
+        <% end %>
+		Liked: <%= clip.counter %>
+		 <%= link_to vote_clip_path(clip.id, act: "downvote"), class: '.clip-vote', :remote => true do %>
+>>>>>>> Stashed changes
       	 DISLIKE
         <% end %>
 	<% end %>

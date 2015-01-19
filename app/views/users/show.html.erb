@@ -1,4 +1,40 @@
+<<<<<<< Updated upstream
 <b> LIST OF YOUR FRIENDS:</b>
 <% @friends.each do |friend| %><br>
 <%= friend.username %>
 <% end %> 
+=======
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Friends:</strong>
+  	<% if @user.friends.size == 0 %>
+		<%= p "No added Friends yet." %>
+ 	<% else %>
+		<% @user.friends.each do |friend| %>
+  			<br><%= link_to friend.username, user_path(friend) %>
+		<% end %>
+	<% end %>
+</p>
+
+<p>
+  <strong>Added clips:</strong>
+  <% @user.clips.each do |clip| %>
+  <br><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+  <br>
+  <% end %>
+</p>
+
+<p>
+  <strong>Favorite clips:</strong>
+  <% @user.favorites.each do |clip| %>
+  <br><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+  <br>
+  <% end %>
+</p>
+>>>>>>> Stashed changes

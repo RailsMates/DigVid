@@ -1,9 +1,16 @@
 <% @users.each do |user| %>
 <% if Friendship.where(:user_id => current_user.id, :friend_id => user.id).blank? %>
+<<<<<<< Updated upstream
 <%= user.username %> || <%= link_to "Add Friend", create_friendship_user_path(user), method: :put %>
 <br>
  <% else %>
 <%= user.username %> || <%= link_to "Friends already", users_friends_path %> 
+=======
+<%= user.username %> || <%= link_to "Add Friend", create_friendship_user_path(user), :remote => true %>
+<br>
+ <% else %>
+<%= user.username %> || <%= link_to "Friends already", user_friends_path %> 
+>>>>>>> Stashed changes
 <br>
 
 <% end %>

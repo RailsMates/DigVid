@@ -1,0 +1,21 @@
+<h2>Add your Clip</h2>
+
+<%= form_for(@clip) do |clip| %>
+
+
+<div class="field">
+	<%= clip.label :name %><br>
+	<%= clip.text_field :name %>
+</div>
+
+
+<div class="field">
+	<%= clip.label :URL %><br>
+	<%= clip.text_field :URL %>
+</div>
+
+<div class="actions">
+	<%= clip.submit %>
+</div>
+
+<% end %>

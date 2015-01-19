@@ -5,7 +5,7 @@
 <% @clips.each do |clip| %>
 	<iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
 	<br>
-	<%= link_to "Remove from favorites", unfavorite_clip_path(clip), method: :put %><br>
+	<%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite"), :remote => true %><br>
 
 <% end %>
 <% end %>
