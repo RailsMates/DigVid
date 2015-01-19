@@ -1,10 +1,7 @@
 <b> LIST OF YOUR FRIENDS:</b>
 <% if @friends.size == 0 %>
 <%= p "You have no added Friends yet." %>
-<<<<<<< Updated upstream
-=======
 <% else %>
->>>>>>> Stashed changes
 <% @friends.each do |friend| %><br>
 <%= friend.username %>
 <% end %>

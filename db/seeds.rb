@@ -15,47 +15,6 @@ p "seeds created"
 
 
 
-<<<<<<< Updated upstream
-Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M")
-Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA")
-Clip.create(URL: "https://www.youtube.com/watch?v=spxg0O05kiA")
-Clip.create(URL: "https://www.youtube.com/watch?v=W81C1VgqYnU")
-Clip.create(URL: "https://www.youtube.com/watch?v=4zLfCnGVeL4")
-Clip.create(URL: "https://www.youtube.com/watch?v=g4arvDxKVIo")
-Clip.create(URL: "https://www.youtube.com/watch?v=x7MCbis75wk")
-Clip.create(URL: "https://www.youtube.com/watch?v=8IHFVn0sv14")
-Clip.create(URL: "https://www.youtube.com/watch?v=XIQNngEnKU0")
-Clip.create(URL: "https://www.youtube.com/watch?v=Im8zYhFB0JA")
-Clip.create(URL: "https://www.youtube.com/watch?v=d7R7q1lSZfs")
-Clip.create(URL: "https://www.youtube.com/watch?v=fUis9yny_lI")
-
-
-Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M")
-Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA")
-Clip.create(URL: "https://www.youtube.com/watch?v=spxg0O05kiA")
-Clip.create(URL: "https://www.youtube.com/watch?v=W81C1VgqYnU")
-Clip.create(URL: "https://www.youtube.com/watch?v=4zLfCnGVeL4")
-Clip.create(URL: "https://www.youtube.com/watch?v=g4arvDxKVIo")
-Clip.create(URL: "https://www.youtube.com/watch?v=x7MCbis75wk")
-Clip.create(URL: "https://www.youtube.com/watch?v=8IHFVn0sv14")
-Clip.create(URL: "https://www.youtube.com/watch?v=XIQNngEnKU0")
-Clip.create(URL: "https://www.youtube.com/watch?v=Im8zYhFB0JA")
-Clip.create(URL: "https://www.youtube.com/watch?v=d7R7q1lSZfs")
-Clip.create(URL: "https://www.youtube.com/watch?v=fUis9yny_lI")
-
-Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M")
-Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA")
-Clip.create(URL: "https://www.youtube.com/watch?v=spxg0O05kiA")
-Clip.create(URL: "https://www.youtube.com/watch?v=W81C1VgqYnU")
-Clip.create(URL: "https://www.youtube.com/watch?v=4zLfCnGVeL4")
-Clip.create(URL: "https://www.youtube.com/watch?v=g4arvDxKVIo")
-Clip.create(URL: "https://www.youtube.com/watch?v=x7MCbis75wk")
-Clip.create(URL: "https://www.youtube.com/watch?v=8IHFVn0sv14")
-Clip.create(URL: "https://www.youtube.com/watch?v=XIQNngEnKU0")
-Clip.create(URL: "https://www.youtube.com/watch?v=Im8zYhFB0JA")
-Clip.create(URL: "https://www.youtube.com/watch?v=d7R7q1lSZfs")
-Clip.create(URL: "https://www.youtube.com/watch?v=fUis9yny_lI")
-=======
 Clip.create(URL: "https://www.youtube.com/watch?v=ZCx0X2YSd1M", counter: 0)
 Clip.create(URL: "https://www.youtube.com/watch?v=lp-EO5I60KA", counter: 0)
 Clip.create(URL: "https://www.youtube.com/watch?v=spxg0O05kiA", counter: 0)
@@ -97,7 +56,6 @@ Clip.create(URL: "https://www.youtube.com/watch?v=d7R7q1lSZfs", counter: 0)
 Clip.create(URL: "https://www.youtube.com/watch?v=fUis9yny_lI", counter: 0)
 
 Clip.update_all(name: "Sample Clip Name")
->>>>>>> Stashed changes
 
 
 p "clips created"

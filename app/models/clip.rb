@@ -1,5 +1,6 @@
 class Clip < ActiveRecord::Base
-	
+	# before_create :set_default
+
 	has_many :favorite_clips
 	has_many :favorited_by, through: :favorite_clips, source: :user
 
@@ -8,13 +9,13 @@ class Clip < ActiveRecord::Base
 
 	has_many :liked_clips
 	has_many :users, through: :liked_clips, source: :user
-<<<<<<< Updated upstream
-	
-=======
 
 	belongs_to :user
 
->>>>>>> Stashed changes
+	# def set_default
+	# 	self[:confirmed] = false
+	# end
+
 	self.per_page = 10
 
 end

@@ -2,41 +2,19 @@ Rails.application.routes.draw do
   root to: 'clips#index'
   devise_for :users
   # resources :friendships
-<<<<<<< Updated upstream
-  
-  resources :clips do
-    put :favorite, on: :member
-    put :unfavorite, on: :member
-    get :like, on: :member, to: 'clips#upvote'
-    get :dislike, on: :member, to: 'clips#downvote'
-  end
-
-  resources :users do
-  put :create_friendship, on: :member
-  end
-
- #used
-  get 'users' => "users#index"
-  get 'users/friends' => "users#friendships"
-=======
 
   resources :clips, only: [:add, :create]
   resources :clips do
-    member do
-      get :favorite
-      get :vote
-    end
+    get :favorite, on: :member
+    get :vote, on: :member
   end
 
-  resources :users, only: [:index]
+  resources :users
   resources :users do
-    member do
-      get :create_friendship
-    end
+    get :create_friendship, on: :member
   end
 
  #used
->>>>>>> Stashed changes
   get '/user/favorites' => "users#favorites"
   get '/user/friends' => "users#friends"
  

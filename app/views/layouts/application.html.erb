@@ -12,19 +12,11 @@
 	<i><p id="notice"><%= notice %></p></i>
 	<% if user_signed_in? %>
  			  <ul>
-<<<<<<< Updated upstream
-              <b><p>Signed in as <%= link_to current_user.username %></p></b>
-              <i><%= link_to 'Edit account', edit_user_registration_path %> ||
-              <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %> ||
-              <%= link_to "Registered Users List", users_path %> ||
-              <%= link_to "My Friends", users_friends_path %>
-=======
               <b><p>Signed in as <%= link_to current_user.username, user_path(current_user) %></p></b>
               <i><%= link_to 'Edit account', edit_user_registration_path %> ||
               <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %> ||
               <%= link_to "Registered Users List", users_path %> ||
               <%= link_to "My Friends", user_friends_path %>
->>>>>>> Stashed changes
               </i>
               </ul>
               <% else %> 

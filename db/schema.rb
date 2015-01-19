@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< Updated upstream
-ActiveRecord::Schema.define(version: 20150118124933) do
-=======
 ActiveRecord::Schema.define(version: 20150119000139) do
->>>>>>> Stashed changes
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -55,8 +51,6 @@ ActiveRecord::Schema.define(version: 20150119000139) do
   add_index "favorite_clips", ["clip_id"], name: "index_favorite_clips_on_clip_id"
   add_index "favorite_clips", ["user_id"], name: "index_favorite_clips_on_user_id"
 
-<<<<<<< Updated upstream
-=======
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -70,7 +64,6 @@ ActiveRecord::Schema.define(version: 20150119000139) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
->>>>>>> Stashed changes
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "friend_id"
