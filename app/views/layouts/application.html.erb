@@ -65,7 +65,7 @@
               <b>Signed in as <%= link_to current_user.username, user_path(current_user) %></b>
               <br><i><%= link_to 'Edit account', edit_user_registration_path %> ||
               <%= link_to "Logout", destroy_user_session_path, :method => 'delete' %> ||
-              <%= link_to "Registered Users List", users_path %> ||
+              <%= link_to "Favorites",user_favorites_path %> ||
               <%= link_to "My Friends", user_friends_path %>
               </i>
               </ul>

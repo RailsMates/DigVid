@@ -1,21 +1,35 @@
+<% if current_user %>
 <h2>Add your Clip</h2>
-
 <%= form_for(@clip) do |clip| %>
 
 
-<div class="field">
+<div class = "field">
 	<%= clip.label :name %><br>
 	<%= clip.text_field :name %>
 </div>
 
 
-<div class="field">
+<div class = "field">
 	<%= clip.label :URL %><br>
 	<%= clip.text_field :URL %>
+</div>
+
+Categories:
+<div class = "field">
+	<% Category.all.each do |category| %>
+	<tr>
+		<td><%= check_box_tag "clip[category_ids][]", category.id, @clip.category_ids.include?(category.id) %></td>
+		<td><%= category.name %></td>
+		<br>
+	</tr>
+	<% end %>
 </div>
 
 <div class="actions">
 	<%= clip.submit %>
 </div>
+<% end %>
 
+<% else %>
+You need to <%= link_to "sign in", new_user_session_path %> to add new clip.
 <% end %>

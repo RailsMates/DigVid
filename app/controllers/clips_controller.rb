@@ -3,7 +3,7 @@ class ClipsController < ApplicationController
 	before_action :set_clip, only: [:favorite, :unfavorite, :vote, :show]
 
 	def index
-		@clips = Clip.paginate(:page => params[:page])
+		@clips = Clip.order('created_at DESC').page(params[:page])
 	end
 
 	def new
@@ -11,7 +11,9 @@ class ClipsController < ApplicationController
 	end
 
 	def create
-		current_user.clips << Clip.new(clip_params)
+		clip = Clip.new(clip_params)
+		current_user.clips << clip
+		clip.clip_categories << ClipCategory.create(clip_id: clip.id, category_id: params[:category_ids])
 	end
 
 	def show
@@ -57,16 +59,19 @@ class ClipsController < ApplicationController
 	end
 
 	def update
-		
 	end
 
 	def clip_params
-		params.require(:clip).permit(:name, :URL)
+		params.require(:clip).permit(:name, :URL, category_ids: [])
 	end
 
 	private 
 	def set_clip
 		@clip = Clip.find(params[:id])
+	end
+
+	def set_category
+		@category = Category.find(params[:id])
 	end
 
 end

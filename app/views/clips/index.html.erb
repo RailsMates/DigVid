@@ -1,6 +1,4 @@
-
 <% @clips.each do |clip| %>
-<div class = "back">
 	<div class = "clip">
 	
 	<b><%= link_to clip.name, clip %></b>
@@ -23,12 +21,15 @@
  	 		<%= link_to "In favorites", user_favorites_path %> <br><br>
 		<% end %>
 		<% end %>
+	<div class = "categories">
+		Categories: <% clip.categories.each do |cat| %>
+		 <%= cat.name %>
+	<% end %>
 	</div>
 	</div>
-	
-<br>
 </div>
-<% end %>
 
+<br><br>
+<% end %>
 	
 <center><%= will_paginate @clips %></center>
