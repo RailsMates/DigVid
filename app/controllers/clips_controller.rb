@@ -1,6 +1,7 @@
 class ClipsController < ApplicationController
 	before_action :authenticate_user!, only: [:favorite, :unfavorite , :vote]
-	before_action :set_clip, only: [:favorite, :unfavorite, :vote]
+	before_action :set_clip, only: [:favorite, :unfavorite, :vote, :show]
+
 	def index
 		@clips = Clip.paginate(:page => params[:page])
 	end
@@ -13,6 +14,8 @@ class ClipsController < ApplicationController
 		current_user.clips << Clip.new(clip_params)
 	end
 
+	def show
+	end
 
 	def find
 		 @clip = current_user.favorites.where(clip_id: params[:id])
@@ -52,24 +55,6 @@ class ClipsController < ApplicationController
 	   	 current_user.liked_clips << LikedClip.create(user_id: current_user.id, clip_id: @clip.id)
 	   	end
 	end
-
-
-
-	# def upvote
-	#    if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank?
-	#    	 @clip.counter += 1
-	#    	 @clip.save
-	#    	 current_user.liked_clips << LikedClip.create(user_id: current_user.id, clip_id: @clip.id)
-	#    end
-	# end
-
-	# def downvote
-	# 	if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank?
-	#    	 @clip.counter -= 1 
-	#    	 @clip.save
-	#    	 current_user.liked_clips << LikedClip.create(user_id: current_user.id, clip_id: @clip.id)
-	#    end
-	# end
 
 	def update
 		
