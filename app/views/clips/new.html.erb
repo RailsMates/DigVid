@@ -1,20 +1,21 @@
+<div class = "form">
 <% if current_user %>
-<h2>Add your Clip</h2>
+<h3>Add your Clip</h3>
 <%= form_for(@clip) do |clip| %>
 
 
 <div class = "field">
 	<%= clip.label :name %><br>
-	<%= clip.text_field :name %>
+	<%= clip.text_field :name, size: "40", placeholder: "Add a title here." %>
 </div>
 
 
 <div class = "field">
 	<%= clip.label :URL %><br>
-	<%= clip.text_field :URL %>
+	<%= clip.text_field :URL, size: "40", placeholder: "Enter clip URL here." %>
 </div>
 
-Categories:
+<br>Categories:
 <div class = "field">
 	<% Category.all.each do |category| %>
 	<tr>
@@ -33,3 +34,4 @@ Categories:
 <% else %>
 You need to <%= link_to "sign in", new_user_session_path %> to add new clip.
 <% end %>
+</div>

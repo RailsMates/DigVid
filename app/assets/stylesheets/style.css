@@ -20,6 +20,11 @@ body {
 	font-size: 17px;
 }
 
+.form {
+	padding-left: 20px;
+
+}
+
 .clip {
 	background-image: url("pattern-872s.png");
 	width: 80%;

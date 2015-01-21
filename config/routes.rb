@@ -17,15 +17,19 @@ Rails.application.routes.draw do
  #used
   get '/user/favorites' => "users#favorites"
   get '/user/friends' => "users#friends"
+  get '/waitings' => "clips#waitings"
+  get '/top/today' => "clips#today"
+  get '/top/last_week' => "clips#last_week"
+  get '/top/last_month' => "clips#last_month"
  
   #waiting for development
   # get '/my_account' => "users#show"
   # get '/user/:username' => "users#show"
   # get '/search' => "clips#search"
-  # get '/waiting' => "clips#pick"
+  
   # get '/add_clip' => "clips#create"
   # get '/add_category' => "categories#create" 
-  # get '/top/:period' => "clips#top"
+  
   # get '/top/:category' => "clips#cat_top"
   
 end

@@ -46,14 +46,14 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav ">
             <li><%= link_to "Add Clip", new_clip_path %></li>
-            <li><%= link_to "Waiting Room", root_path %></li>
+            <li><%= link_to "Waiting Room", waitings_path %></li>
             <li><%= link_to "Search", root_path %></li>
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hot Content<span class="caret"></span></a>
                <ul class="dropdown-menu" role="menu">
-              <li><%= link_to 'Today', root_path %></li>
-              <li><%= link_to 'Last week', root_path %></li>
-              <li><%= link_to 'Last month', root_path %></li>
+              <li><%= link_to 'Today', top_today_path %></li>
+              <li><%= link_to 'Last week', top_last_week_path %></li>
+              <li><%= link_to 'Last month', top_last_month_path %></li>
             </li>
             </ul>
           </ul>

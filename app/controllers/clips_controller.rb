@@ -3,7 +3,7 @@ class ClipsController < ApplicationController
 	before_action :set_clip, only: [:favorite, :unfavorite, :vote, :show]
 
 	def index
-		@clips = Clip.order('created_at DESC').page(params[:page])
+		@clips = Clip.on_main.order('created_at DESC').page(params[:page])
 	end
 
 	def new
@@ -14,6 +14,22 @@ class ClipsController < ApplicationController
 		clip = Clip.new(clip_params)
 		current_user.clips << clip
 		clip.clip_categories << ClipCategory.create(clip_id: clip.id, category_id: params[:category_ids])
+	end
+
+	def waitings
+		@clips = Clip.waitings.order('created_at DESC').page(params[:page])
+	end
+
+	def today
+		@clips = Clip.newer_than(1.day).order('counter DESC').page(params[:page])
+	end
+
+	def last_week
+		@clips = Clip.newer_than(1.week).order('counter DESC').page(params[:page])
+	end
+
+	def last_month
+		@clips = Clip.newer_than(1.month).order('counter DESC').page(params[:page])
 	end
 
 	def show
