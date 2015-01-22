@@ -89,7 +89,7 @@ class ClipsController < ApplicationController
 	end
 
 	def clip_params
-		params.require(:clip).permit(:name, :URL, category_ids: [])
+		params.require(:clip).permit(:name, :counter, :URL, :confirmed, category_ids: [])
 	end
 
 	private 
