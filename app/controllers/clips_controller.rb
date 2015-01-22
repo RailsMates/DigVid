@@ -1,6 +1,6 @@
 class ClipsController < ApplicationController
 	before_action :authenticate_user!, only: [:favorite, :unfavorite , :vote]
-	before_action :set_clip, only: [:favorite, :unfavorite, :vote]
+	before_action :set_clip, only: [:show, :favorite, :unfavorite, :vote]
 
 	def index
 		@clips = Clip.on_main.order('created_at DESC').page(params[:page])
@@ -8,6 +8,9 @@ class ClipsController < ApplicationController
 
 	def new
 		@clip = Clip.new
+	end
+
+	def show
 	end
 
 	def create
@@ -20,7 +23,7 @@ class ClipsController < ApplicationController
 	end
 
 	def search_results
-  		@clips = Clip.where(name: params[:q]).page(params[:page])
+  		@clips = Clip.where("name LIKE ?", "%#{params[:q]}%").page(params[:page])
 	end
 
 	def waitings

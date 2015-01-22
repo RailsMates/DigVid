@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get '/top/last_month' => "clips#last_month"
   get 'clips/search' => "clips#search"
   get 'clips/search_results' => "clips#search_results" 
+  get 'categories/:id' => "categories#show"
  
+ resources :categories, only: [:show]
  resources :clips, only: [:add, :create]
   resources :clips do
     get :favorite, on: :member
@@ -23,16 +25,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :users do
-    get :create_friendship, on: :member
+    get :friendship, on: :member
   end
-  #waiting for development
-  # get '/my_account' => "users#show"
-  # get '/user/:username' => "users#show"
-  
-  
-  # get '/add_clip' => "clips#create"
-  # get '/add_category' => "categories#create" 
-  
-  # get '/top/:category' => "clips#cat_top"
   
 end

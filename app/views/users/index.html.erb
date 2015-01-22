@@ -1,11 +1,10 @@
 <% @users.each do |user| %>
 <% if Friendship.where(:user_id => current_user.id, :friend_id => user.id).blank? %>
-<%= user.username %> || <%= link_to "Add Friend", create_friendship_user_path(user), :remote => true %>
+<%= user.username %> || <%= link_to "Follow", friendship_user_path(user.id, act: "create"), :remote => true %>
 <br>
  <% else %>
-<%= user.username %> || <%= link_to "Friends already", user_friends_path %> 
+<%= user.username %> || <%= link_to "Following already", user_friends_path %> || <%= link_to "Unfollow", friendship_user_path(user.id, act: "destroy"), :remote => true %>
 <br>
 
-<% end %>
-
-<% end %>
+<% end %> 
+<% end %> 

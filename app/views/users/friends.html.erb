@@ -3,6 +3,6 @@
 <%= p "You have no added Friends yet." %>
 <% else %>
 <% @friends.each do |friend| %><br>
-<%= friend.username %>
+<%= friend.username %> <%= link_to "Unfollow", friendship_user_path(friend.id, act: "destroy"), :remote => true %>
 <% end %>
 <% end %>
