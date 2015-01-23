@@ -14,20 +14,29 @@
 	<div class="embed-container"><iframe width="560" height="315" src= <%= modifyURL(@clip.URL) %> frameborder="0" allowfullscreen></iframe></div>
 	<div class = "author"> 	Added by: <%= link_to @clip.user, user_path(@clip.user.id) %></div>
 	<div class = "clip-vote">
-        <%= link_to vote_clip_path(@clip.id, act: "upvote"), :remote => true do %>UP<% end %> Liked: <%= @clip.counter %>
-		<%= link_to vote_clip_path(@clip.id, act: "downvote"), :remote => true do %>DOWN<% end %>
+		<% if current_user %>
+        <% if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank? %>
+		<%= link_to vote_clip_path(@clip.id, act: "upvote"), id: "upvote", :remote => true do %>UP<% end %>
+		<%= content_tag :div, id: "counter_#{@clip.id}" do %><%= @clip.counter %><% end %>
+		<%= link_to vote_clip_path(@clip.id, act: "downvote"), id: "downvote", :remote => true do %>DOWN<% end %>
+		<% else %>
+		<%= content_tag :div, id: "counter_#{@clip.id}" do %><%= @clip.counter %><% end %>
+		You've voted for this clip.
+		<% end %>
+		<% else %>
+		<%= content_tag :div, id: "counter_#{@clip.id}" do %><%= @clip.counter %><% end %>		
+		You need to sign up to vote.<br>
+		<% end %>
 	<% if current_user %>
 	  	<% if FavoriteClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank? %>
  	 		<br><%= link_to "To favorites", favorite_clip_path(@clip, act: "favorite"), :remote => true %><br>
  	 	<% else %>
  	 		<br><%= link_to "In favorites", user_favorites_path %>
- 	 		<br>
 		<% end %>
+	<% end %>
 		Categories: <% @clip.categories.each do |cat| %>
 		 <%= link_to cat.name, category_path(cat.id)  %>
 		<% end %>
 	</div>
 	</div>
-<br><br>
-<% end %>
-	
+<br><br>	

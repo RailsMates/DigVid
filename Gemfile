@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 gem 'activeadmin', github: 'activeadmin'
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem 'therubyracer'
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
 gem 'will_paginate'
 gem 'faker'
 gem 'devise'

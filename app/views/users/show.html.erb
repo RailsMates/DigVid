@@ -1,47 +1,46 @@
 <p id="notice"><%= notice %></p>
-<div class = "name">
-<p>
-  <center><%= @user.username %></center>
-</p>
+<div class = "name"><p><center><%= @user.username %></center></p></div>
 
-<div class = "favorites">
-<p>
-  <strong>Favorite clips:</strong><br>
-  <% @user.favorites.each do |clip| %><br>
-  <br><iframe width="320" height="200" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
-  <br>
-  <% end %>
-</p>
-</div>
-
-<div class = "friends">
-<p>
-  <strong>Friends:</strong><br>
-  	<% if @user.friends.size == 0 %>
-		<%= p "No added Friends yet." %>
- 	<% else %>
-		<% @user.friends.each do |friend| %>
-  			<br><%= link_to friend.username, user_path(friend) %>
-		<% end %>
-	<% end %>
-</p>
-<p>
-  <strong>In Friend List:</strong><br>
-    <% if @user.inverse_friends.size == 0 %>
-    <%= p "You haven't been added to any friend list yet." %>
-  <% else %>
-    <% @user.inverse_friends.each do |friend| %>
-        <br><%= link_to friend.username, user_path(friend) %>
-    <% end %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Added clips:</strong><br>
-  <% @user.clips.each do |clip| %>
-  <%= link_to clip.name, clip_path(clip.id) %>, counter: <%= clip.counter %>
-  <br>
-  <% end %>
-</p>
-</div>
-</div>
+<table class="tg">
+  <tr>
+    <th class="favorites">
+      <p>
+      <strong>Favorite clips:</strong><br>
+      <% @user.favorites.each do |clip| %>
+      <br><iframe width="320" height="200" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe><br>
+      <% end %>
+      </p>
+    </th>
+    <th class="friends">
+      <p>
+      <strong>Friends:</strong><br>
+          <% if @user.friends.size == 0 %>
+      <%= p "No added Friends yet." %>
+          <% else %>
+      <% @user.friends.each do |friend| %>
+          <br><%= link_to friend.username, user_path(friend) %>
+        <% end %>
+        <% end %>
+      </p>
+      <p>
+      <strong>In Friend List:</strong><br>
+         <% if @user.inverse_friends.size == 0 %>
+      <%= p "You haven't been added to any friend list yet." %>
+          <% else %>
+       <% @user.inverse_friends.each do |friend| %>
+          <br><%= link_to friend.username, user_path(friend) %>
+        <% end %>
+        <% end %>
+      </p>
+    </th>
+    <th class="added">
+      <p>
+      <strong>Added clips:</strong><br>
+        <% @user.clips.each do |clip| %>
+        <br><iframe width="320" height="200" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+      <br>
+        <% end %>
+      </p>
+    </th>
+  </tr>
+</table>

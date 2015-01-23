@@ -17,8 +17,8 @@ class Clip < ActiveRecord::Base
 	# end
 	self.per_page = 10
 
-	scope :waitings, -> { where("counter < 1 ") }
-	scope :on_main, -> { where("counter >= 1 ") }
+	scope :waitings, -> { where(("counter < 10 AND confirmed = ?"), true) }
+	scope :on_main, -> { where("counter >= 10 ") }
 	scope :newer_than, ->(date) { where("created_at >= ?", date) }
 	
 
