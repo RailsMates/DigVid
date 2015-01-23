@@ -1,6 +1,7 @@
 User.destroy_all
 Clip.destroy_all
 Category.destroy_all
+Friendship.destroy_all
 
 10.times do
 user = User.new
