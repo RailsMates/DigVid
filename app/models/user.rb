@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
           :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :send_welcome_email 
+  # after_create :send_welcome_email 
 
   extend FriendlyId
   friendly_id :username, use: :slugged
@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
   has_many :clips, through: :liked_clips, source: :clip
 
   has_many :clips
+
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 
   def to_s
     "#{username}"

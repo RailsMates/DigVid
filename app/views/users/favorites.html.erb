@@ -1,11 +1,38 @@
-<b>FAVORITES:</b><br>
+<div class = "header" <h3>FAVORITES</h3><br></div>
 <% if @clips.size == 0 %>
 <%= p "No favorites yet." %>
 <% else %>
 <% @clips.each do |clip| %>
-	<iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
-	<br>
-	<%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite"), :remote => true %><br>
+	<div class = "clip">
+	<b><%= link_to clip.name, clip %></b>
+	<div class = "added">Added at <%= clip.created_at.strftime("%d %b. %Y") %></div>
+	<div class="embed-container"><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe></div>
+	<div class = "author"> 	Added by: <%= link_to clip.user, user_path(clip.user.id) %></div>
+	<div class = "clip-vote">
+		<% if current_user %>
+        <% if LikedClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+		<%= link_to vote_clip_path(clip.id, act: "upvote"), id: "upvote", :remote => true do %>UP<% end %>
+		<%= content_tag :div, id: "counter_#{clip.id}" do %><%= clip.counter %><% end %>
+		<%= link_to vote_clip_path(clip.id, act: "downvote"), id: "downvote", :remote => true do %>DOWN<% end %>
+		<% else %>
+		<%= content_tag :div, id: "counter_#{clip.id}" do %><%= clip.counter %><% end %>
+		You've voted for this clip.
+		<% end %>
+		<% else %>
+		<%= content_tag :div, id: "counter_#{clip.id}" do %><%= clip.counter %><% end %>		
+		You need to sign up to vote.<br>
+		<% end %>
+	<% if current_user %>
+	  	<%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite"), remote: true, id: "abc" %><br>
+	<% end %>
+		Categories: <% clip.categories.each do |cat| %>
+		 <%= link_to cat.name, category_path(cat.id)  %>
+		<% end %>
+	</div>
+	</div>
+<br><br>
+<% end %>
+<% end %>
 
-<% end %>
-<% end %>
+	
+<center><%= will_paginate @clips %></center>

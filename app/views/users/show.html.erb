@@ -1,12 +1,13 @@
-<p id="notice"><%= notice %></p>
-<div class = "name"><p><center><%= @user.username %></center></p></div>
-
+<p id="notice"><%= notice %></p> 
+<div class ="avatar"><%= image_tag @user.avatar.url(:thumb) %>
+<p><%= @user.username %></p></div>
 <table class="tg">
   <tr>
     <th class="favorites">
       <p>
       <strong>Favorite clips:</strong><br>
       <% @user.favorites.each do |clip| %>
+      <div class = "link"><%= link_to clip.name, clip_path(clip.id) %></div>
       <br><iframe width="320" height="200" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe><br>
       <% end %>
       </p>
@@ -37,6 +38,7 @@
       <p>
       <strong>Added clips:</strong><br>
         <% @user.clips.each do |clip| %>
+        <div class = "link"><%= link_to clip.name, clip_path(clip.id) %></div>
         <br><iframe width="320" height="200" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
       <br>
         <% end %>

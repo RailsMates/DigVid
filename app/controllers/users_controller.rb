@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	end
 
 	def favorites
-		@clips = current_user.favorites
+		@clips = current_user.favorites.order('created_at DESC').page(params[:page])
 	end
 
 	def friends

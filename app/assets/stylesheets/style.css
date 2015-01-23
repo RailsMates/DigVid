@@ -2,6 +2,14 @@ body {
 	background-image: url("banner.png");
 	color: white;
 	padding-top: 100px;
+} 
+
+.header {
+	font-size: 25px;
+	text-align: center;
+	color: white;
+	float: center; 
+	padding-bottom: 10px;
 }
 
 .vcenter {
@@ -17,7 +25,15 @@ body {
 	padding-bottom: 0.1em;
 	text-align: center;
 	color: #909090; 
-	font-size: 17px;
+	font-size: 15px;
+}
+
+.login a:link {
+	color: grey;
+}
+
+.login a:visited {
+	color: grey;
 }
 
 .form {
@@ -136,12 +152,12 @@ body {
 
 /* unvisited link */
 a:link {
-    color: #606060;
+    color: white;
 }
 
 /* visited link */
 a:visited {
-    color: #606060;
+    color: white;
 }
 
 /* mouse over link */
@@ -178,7 +194,8 @@ a:active {
 	padding-right: 15px;
 	vertical-align: top;
 	color: #909090; 
-	font-size: 17px;
+	font-size: 22px;
+	color: white;
 
 }
 
@@ -192,7 +209,8 @@ a:active {
 	padding-bottom: 15px;
 	vertical-align: top;
 	color: #909090; 
-	font-size: 17px;
+	font-size: 22px;
+	color: white;
 }
 
 .friends {
@@ -202,8 +220,8 @@ a:active {
 	text-align: center;
 	height: 100%;
 	text-align: top;
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
 	vertical-align: top;
@@ -211,6 +229,7 @@ a:active {
 
 .category {
 	width: 100%;
+	font-size: 22px;
 	text-align: center;
 	padding-top: 15px;
 	padding-bottom: 15px;
@@ -218,4 +237,56 @@ a:active {
 	padding-right: 15px;
 	font-size: 18px;
 
+}
+
+.link {
+	text-align: center;
+	font-size: 15px;
+	color: grey;
+}
+
+.added_at {
+	text-align: right;
+	font-size: 15px;
+	font-style: italic;
+	padding-bottom: 3px;
+}
+.avatar {
+	float: center;
+	position: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	font-size: 25px;
+}
+
+.categories {
+	color: white;
+	background:rgba(255,255,255,0.1);
+	border-radius: 5px;
+	font-style: italic;
+	font-size: 18px;
+	text-align: center;
+	float: center;
+	margin: 0 auto;
+	position: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 80%;
+}
+
+.vote {
+	float: left;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.section {
+	text-align: center;
+	position: center;
+	width: 100%;
+	margin: 0 auto;
+	float: center;
+	display: inline-block;
+	float: left;
 }
