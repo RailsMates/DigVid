@@ -1,26 +1,40 @@
+   <div class = "categories"> 
+	<% Category.all.each do |cat| %>
+		 <%= link_to cat.name, category_path(cat.id) %>
+		<% end %>
+</div><br><br>
+
+
+
 <% @clips.each do |clip| %>
 	<div class = "clip">
-	
 	<b><%= link_to clip.name, clip %></b>
-	
-	<div class = "added">
-		Added at <%= clip.created_at.strftime("%d %b. %Y") %>
-	</div>
+	<div class = "added_at">Added at <%= clip.created_at.strftime("%d %b. %Y") %></div>
 	<div class="embed-container"><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe></div>
-	<div class = "author"> 	Added by: <%= clip.user%></div>
+	<div class = "author"> Added by: <%= link_to clip.user, user_path(clip.user.id) %></div>
 	<div class = "clip-vote">
-        <%= link_to vote_clip_path(clip.id, act: "upvote"), :remote => true do %>UP<% end %> Liked: <%= clip.counter %>
-		<%= link_to vote_clip_path(clip.id, act: "downvote"), :remote => true do %>DOWN<% end %>
+		<% if current_user %>
+        <% if LikedClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+		<div class = "vote"><%= link_to vote_clip_path(clip.id, act: "upvote"), id: "upvote", :remote => true do %>UP<% end %></div>
+		<div class = "vote"><%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %><% end %></div>
+		<div class = "vote"><%= link_to vote_clip_path(clip.id, act: "downvote"), id: "downvote", :remote => true do %>DOWN<% end %></div>
+		<% else %>
+		<%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %><% end %>
+		You've voted for this clip.
+		<% end %>
+		<% else %>
+		<%= content_tag :div, id: "counter_#{clip.id}" do %>Liked: <%= clip.counter %><% end %>		
+		You need to sign up to vote.<br>
+		<% end %>
 	<% if current_user %>
 	  	<% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
  	 		<br><%= link_to "To favorites", favorite_clip_path(clip, act: "favorite"), :remote => true %><br>
  	 	<% else %>
- 	 		<br><%= link_to "In favorites", user_favorites_path %>
- 	 		<br>
+ 	 		<br><%= link_to "In favorites", user_favorites_path %><br>   
 		<% end %>
 	<% end %>
 		Categories: <% clip.categories.each do |cat| %>
-		 <%= link_to cat.name, category_path %>
+		 <%= link_to cat.name, category_path(cat.id)  %>
 		<% end %>
 	</div>
 	</div>

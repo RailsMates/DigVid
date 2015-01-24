@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p> 
+<div class = "follow">
+<% if current_user %>
+<% if current_user.id != @user.id %>
+<% if Friendship.where(:user_id => current_user.id, :friend_id => @user.id).blank? %>
+<%= link_to "(Add to Friends)", friendship_user_path(@user.id, act: "create"), :remote => true %> 
+<% else %>
+<%= link_to "(Remove from Friends)", friendship_user_path(@user.id, act: "destroy"), :remote => true %>
+<% end %>
+<% end %>
+<% end %>
+</div>
 <div class ="avatar"><%= image_tag @user.avatar.url(:thumb) %>
-<p><%= @user.username %></p></div>
+<p><%= @user.username %></p></div><br>
 <table class="tg">
   <tr>
     <th class="favorites">

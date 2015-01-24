@@ -43,6 +43,7 @@ body {
 
 .clip {
 	background-image: url("pattern-872s.png");
+	position: center;
 	width: 80%;
 	margin: 0 auto;
 	padding-left: 0.5em;
@@ -281,12 +282,11 @@ a:active {
 	padding-right: 5px;
 }
 
-.section {
+.follow {
 	text-align: center;
+	font-size: 15px;
 	position: center;
+	font-style: italic;
 	width: 100%;
 	margin: 0 auto;
-	float: center;
-	display: inline-block;
-	float: left;
 }

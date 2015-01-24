@@ -12,7 +12,7 @@ user.password = "abc"
 user.name = Faker::Name.first_name
 user.gender = "Male"
 i = rand(1..13)
-user.avatar =  File.open(File.join(Rails.root, "app/assets/images/avatar#{i}.jpeg"))
+user.avatar =  File.open("app/assets/images/avatar#{i}.jpeg")
 
 user.save!
 
