@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pg'
 gem "paperclip", "~> 4.2"
 gem 'activeadmin', github: 'activeadmin'
 gem 'therubyracer'
