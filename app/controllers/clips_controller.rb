@@ -21,9 +21,9 @@ class ClipsController < ApplicationController
 
 	def search
 	end
-
+ 
 	def search_results
-  		@clips = Clip.where("name LIKE ?", "%#{params[:q]}%").page(params[:page])
+  		@clips = Clip.where("name LIKE ?", "%#{params[:phrase]}%").page(params[:page])
 	end
 
 	def waitings
@@ -64,11 +64,6 @@ class ClipsController < ApplicationController
       		format.html { redirect_to :root, notice: "#{@clip.name} removed from favorites." }
       		format.json { head :no_content }
 		end
-		else
-		respond_to do |format|
-      		format.html { redirect_to :root, notice: "#{@clip.name} removed from favorites." }
-      		format.json { head :no_content }
-		end
 		end
 	end
 
@@ -95,10 +90,6 @@ class ClipsController < ApplicationController
 	private 
 	def set_clip
 		@clip = Clip.find(params[:id])
-	end
-
-	def set_category
-		@category = Category.find(params[:id])
 	end
 
 end
