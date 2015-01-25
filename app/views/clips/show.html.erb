@@ -6,45 +6,82 @@
 
 
 <div class="clip">
-      <b><%= @clip.name %></b>
+  <b><%= @clip.name %></b>
 
-      <div class="added_at">Added at <%= @clip.created_at.strftime("%d %b. %Y") %></div>
-      <div class="embed-container">
-        <iframe width="560" height="315" src=<%= modifyURL(@clip.URL) %> frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="author"> Added by: <%= link_to @clip.user, user_path(@clip.user.id) %></div>
-      <div class="row">
-        <div class="col-md-4 col-md-offset-4 col-centered">
-          <% if current_user %>     
-              <% if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank? %>
-                  <%= link_to "UP", vote_clip_path(@clip.id, act: "upvote"), id: "upvote", :remote => true%>
-                  <%= content_tag :span, id: "counter_#{@clip.id}" do %> Liked: <%= @clip.counter %>
-                  <% end %>
-                  <%= link_to "DOWN", vote_clip_path(@clip.id, act: "downvote"), id: "downvote", :remote => true%>
-              <% else %>
-                  <%= content_tag :div, id: "counter_#{@clip.id}" do %> Liked: <%= @clip.counter %>
-                  <% end %>
-                  <div class = "voted"> You've voted for this clip. </div>
+  <div class="added_at">Added at <%= @clip.created_at.strftime("%d %b. %Y") %></div>
+  <div class="embed-container">
+    <iframe width="560" height="315" src=<%= modifyURL(@clip.URL) %> frameborder="0" allowfullscreen></iframe>
+  </div>
+  <div class="author"> Added by: <%= link_to @clip.user, user_path(@clip.user.id) %></div>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-centered">
+      <% if current_user %>     
+          <% if LikedClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank? %>
+              <%= link_to "UP", vote_clip_path(@clip.id, act: "upvote"), id: "upvote", :remote => true %>
+              <%= content_tag :span, id: "counter_#{@clip.id}" do %> Liked: <%= @clip.counter %>
               <% end %>
+              <%= link_to "DOWN", vote_clip_path(@clip.id, act: "downvote"), id: "downvote", :remote => true %>
           <% else %>
-              <%= content_tag :div, id: "counter_#{@clip.id}" do %>Liked: <%= @clip.counter %>
+              <%= content_tag :div, id: "counter_#{@clip.id}" do %> Liked: <%= @clip.counter %>
               <% end %>
-              <div class = "voted"> You need to sign up to vote. </div>
+              <div class="voted"> You've voted for this clip.</div>
           <% end %>
-          <% if current_user %>
-              <% if FavoriteClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank? %>
-                  <div><%= link_to "To favorites", favorite_clip_path(@clip, act: "favorite"),
-                                   id: "fav_#{@clip.id}", :remote => true %></div>
-              <% else %>
-                  <div><%= link_to "In favorites", user_favorites_path %></div>
-              <% end %>
+      <% else %>
+          <%= content_tag :div, id: "counter_#{@clip.id}" do %>Liked: <%= @clip.counter %>
           <% end %>
-          <div class = "voted"> Categories:
-            <% @clip.categories.each do |cat| %>
-                <%= link_to cat.name, category_path(cat.id) %>
-            <% end %>
-          </div>
-        </div>
+          <div class="voted"> You need to sign up to vote.</div>
+      <% end %>
+      <% if current_user %>
+          <% if FavoriteClip.where(:user_id => current_user.id, :clip_id => @clip.id).blank? %>
+              <div><%= link_to "To favorites", favorite_clip_path(@clip, act: "favorite"),
+                               id: "fav_#{@clip.id}", :remote => true %></div>
+          <% else %>
+              <div><%= link_to "In favorites", user_favorites_path %></div>
+          <% end %>
+      <% end %>
+      <div class="voted"> Categories:
+        <% @clip.categories.each do |cat| %>
+            <%= link_to cat.name, category_path(cat.id) %>
+        <% end %>
       </div>
     </div>
-    <br><br>
+  </div>
+</div>
+<div class="row">
+  <p></p>
+
+
+
+  <div class="col-md-10 col-md-offset-2">
+
+    <% if @clip.comments.size == 0 %>
+        There are no comments yet.
+    <% else %>
+        <div class="comments">
+          <% @clip.comments.each do |comment| %>
+              <div class="comment"><%= comment.comment %></div>
+              <div class="author"> Author: <%= comment.user.username %></div>
+          <% end %>
+    <% end %>
+    </div>
+
+    <% if current_user %>
+        <div class="row">
+
+          <div class="col-md-4 col-md-offset-2 field">
+
+            <%= form_tag(add_comment_clip_path, method: "get") do %>
+                <div class> <%= label_tag(:comm, "Add a comment: ") %></div>
+                <div>
+                  <%= text_area_tag(:comm, nil, size: "80x3") %><br>
+                </div>
+                <div class= "actions">
+                  <%= submit_tag("Post!") %>
+                </div>
+            <% end %>
+          </div>
+    <% end %>
+    </div>
+
+  </div>
+</div>

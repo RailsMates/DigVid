@@ -80,6 +80,14 @@ body {
 	font-size: 15px;
 }
 
+.field2 {
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	color: #909090;
+	font-size: 15px;
+	height: auto; 
+}
+
 .actions {
 	padding-bottom: 1.0em;
 	padding-top: 1.0em;
@@ -302,4 +310,69 @@ a:active {
     text-align:center;
     /* inline-block space fix */
     margin-right:-4px;
+}
+
+.h3 {
+	padding-left: 10px;
+
+}
+
+.comments {
+	width: 80%;
+	position: center;
+	text-align: center; 
+	background:rgba(255,255,255,0,5);
+	border-radius: 10px;
+	color: white;
+	font-size: 18px;
+}
+
+.head {
+	font-size: 25px;
+	text-align: left;
+	color: white;
+	float: center; 
+	padding-left: 25px;
+}
+
+.form {
+	text-align: center;
+}
+
+.add_comment {
+	text-align: center;
+	font-size: 18px;
+}
+
+.form a:link {
+    color: white;
+}
+
+.form a:visited {
+    color: white;
+}
+
+.comment {
+	color: grey;
+	background:rgba(255,255,255,0.04);
+	border-radius: 5px;
+	font-style: italic;
+	font-size: 18px;
+	text-align: center;
+	margin: 0 auto;
+	position: center;
+}
+.comments {
+	width: 80%;
+	position: center;
+	text-align: center; 
+	border-radius: 10px;
+	color: white;
+	font-size: 18px;
+}
+
+.author {
+	position: right;
+	font-size: 15px;
+	text-decoration: italic;
 }

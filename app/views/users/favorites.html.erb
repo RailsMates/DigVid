@@ -19,7 +19,7 @@
 		You've voted for this clip.
 		<% end %>
 	<% if current_user %>
-	  	<br><%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite"), remote: true, id: "abc" %><br>
+	  	<br><%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite") %><br>
 	<% end %>
 		Categories: <% clip.categories.each do |cat| %>
 		 <%= link_to cat.name, category_path(cat.id)  %>

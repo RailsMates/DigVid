@@ -1,6 +1,6 @@
 class ClipsController < ApplicationController
 	before_action :authenticate_user!, only: [:favorite, :unfavorite , :vote]
-	before_action :set_clip, only: [:show, :favorite, :unfavorite, :vote]
+	before_action :set_clip, only: [:show, :favorite, :unfavorite, :vote, :add_comment]
 
 	def index
 		@clips = Clip.on_main.order('created_at DESC').page(params[:page])
@@ -11,6 +11,11 @@ class ClipsController < ApplicationController
 	end
 
 	def show
+	end
+
+	def add_comment
+    	@clip.comments << Comment.create(user_id: current_user.id, comment: params[:comm])
+    	redirect_to clip_path(@clip)
 	end
 
 	def create
@@ -54,10 +59,11 @@ class ClipsController < ApplicationController
 		act = params[:act]
 		if act == "favorite"
    		current_user.favorites << @clip
+   		render :json => { :success => true}
    		elsif act == "unfavorite"
    		current_user.favorites.delete(@clip)
+   		redirect_to user_favorites_path(current_user)
 		end
-		render :json => { :success => true}
 	end
 
 	def vote

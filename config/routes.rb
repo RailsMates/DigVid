@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :clips do
     get :favorite, on: :member
     get :vote, on: :member
+    get :add_comment, on: :member
   end
 
   resources :users
