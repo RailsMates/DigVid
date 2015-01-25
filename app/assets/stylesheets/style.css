@@ -1,162 +1,160 @@
 body {
-	background-image: url("banner.png");
-	color: white;
-	padding-top: 100px;
-} 
+    background-image: url("banner.png");
+    color: white;
+    padding-top: 100px;
+}
 
 .header {
-	font-size: 25px;
-	text-align: center;
-	color: white;
-	float: center; 
-	padding-bottom: 10px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    padding-bottom: 10px;
 }
 
 .vcenter {
-	background-image: url("pattern-ftjz.png");
-	vertical-align: middle;
-	font-size: 17px;
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
+    background-image: url("pattern-ftjz.png");
+    vertical-align: middle;
+    font-size: 17px;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
 }
 
 .login {
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
-	text-align: center;
-	color: #909090; 
-	font-size: 15px;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    text-align: center;
+    color: #909090;
+    font-size: 15px;
 }
 
 .login a:link {
-	color: grey;
+    color: grey;
 }
 
 .login a:visited {
-	color: grey;
+    color: grey;
 }
 
 .form {
-	padding-left: 20px;
+    padding-left: 20px;
 
 }
 
 .clip {
-	background-image: url("pattern-872s.png");
-	position: center;
-	width: 80%;
-	margin: 0 auto;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-radius: 3px;
-	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;*/
-	text-align: center;
-	font-size: 18px;
-	border: 1px solid #000033;
-	padding-top: 0.8em;
-	padding-bottom: 0.5em;
-	}
+    background-image: url("pattern-872s.png");
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid #000033;
+    padding-top: 0.8em;
+    padding-bottom: 0.5em;
+}
 
 .videoWrapper {
-	position: center;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
 }
+
 .videoWrapper iframe {
-	position: center;
-	top: 0;
-	left: 0;
-	width: 85%;
-	height: 85%;
+    top: 0;
+    left: 0;
+    width: 85%;
+    height: 85%;
 }
 
 .field {
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	color: #909090;
-	font-size: 15px;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    color: #909090;
+    font-size: 15px;
 }
 
 .field2 {
-	padding-bottom: 0.5em;
-	padding-top: 0.5em;
-	color: #909090;
-	font-size: 15px;
-	height: auto; 
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    color: #909090;
+    font-size: 15px;
+    height: auto;
 }
 
 .actions {
-	padding-bottom: 1.0em;
-	padding-top: 1.0em;
-	color: black;	
+    padding-bottom: 1.0em;
+    padding-top: 1.0em;
+    color: black;
 }
 
 .back {
-	padding-top: 30px;
-	padding-bottom: 30px;
-	width: 95%;
-	margin: 0 auto;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 95%;
+    margin: 0 auto;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 }
 
 /*YouTube Responsive */
 
 .embed-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  overflow: hidden;
-  width: 100%;
-  height: auto;
-  margin-bottom: 12px;
-} 
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+}
 
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .logo {
-	font-size: 24px;
+    font-size: 24px;
 }
 
 .added {
-	font-style: italic;
-	text-align: right;
-	font-size: 15px;
+    font-style: italic;
+    text-align: right;
+    font-size: 15px;
 }
 
 .author {
-	font-style: bold;
-	text-align: right;
-	font-size: 15px;
+    font-style: bold;
+    text-align: right;
+    font-size: 15px;
 }
 
 .clip-vote {
-	text-align: center;
-	color: #606060;
+    text-align: center;
+    color: #606060;
 }
 
 .favorites {
-	text-align: center;
-	color: #606060;
+    text-align: center;
+    color: #606060;
 }
 
 .voted a:link {
-	color: grey;
+    color: grey;
 }
 
 .voted a:visited {
-	color: grey;
+    color: grey;
 }
 
 /* unvisited link */
@@ -180,168 +178,153 @@ a:active {
 }
 
 .name {
-	width: 100%;
-	text-align: left;
-	text-decoration: bold;
-	font-size: 18px;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .tg {
-	float: center;
-	width: 100%;
+    width: 100%;
 }
 
 .favorites {
-	text-align: center;
-	float: center;
-	position: center;
-	width: 33%;
-	text-align: top;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
-	vertical-align: top;
-	color: #909090; 
-	font-size: 22px;
-	color: white;
+    text-align: center;
+    width: 33%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: top;
+    color: #909090;
+    font-size: 22px;
+    color: white;
 
 }
 
 .added {
-	float: center;
-	position: right;
-	width: 33%;
-	text-align: center;
-	text-align: top;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	vertical-align: top;
-	color: #909090; 
-	font-size: 22px;
-	color: white;
+    width: 33%;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: top;
+    color: #909090;
+    font-size: 22px;
+    color: white;
 }
 
 .friends {
-	float: center;
-	position: center;
-	width: 33%;
-	text-align: center;
-	height: 100%;
-	text-align: top;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 15px;
-	padding-right: 15px;
-	vertical-align: top;
+    width: 33%;
+    text-align: center;
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: top;
 }
 
 .category {
-	width: 100%;
-	font-size: 22px;
-	text-align: center;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 15px;
-	padding-right: 15px;
-	font-size: 18px;
+    width: 100%;
+    font-size: 22px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 18px;
 
 }
 
 .voted {
     color: grey;
-    text-decoration: italic;
+    font-style: italic;
 }
+
 .link {
-	text-align: center;
-	font-size: 15px;
-	color: grey;
+    text-align: center;
+    font-size: 15px;
+    color: grey;
 }
 
 .added_at {
-	text-align: right;
-	font-size: 15px;
-	font-style: italic;
-	padding-bottom: 3px;
+    text-align: right;
+    font-size: 15px;
+    font-style: italic;
+    padding-bottom: 3px;
 }
+
 .avatar {
-	float: center;
-	position: center;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	text-align: center;
-	font-size: 25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: 25px;
 }
 
 .categories {
-	color: white;
-	background:rgba(255,255,255,0.1);
-	border-radius: 5px;
-	font-style: italic;
-	font-size: 18px;
-	text-align: center;
-	float: center;
-	margin: 0 auto;
-	position: center;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	width: 80%;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 80%;
 }
 
 .vote {
-	float: left;
-	padding-left: 5px;
-	padding-right: 5px;
+    float: left;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .follow {
-	text-align: center;
-	font-size: 15px;
-	position: center;
-	font-style: italic;
-	width: 100%;
-	margin: 0 auto;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .col-centered {
-    display:inline-block;
-    float:none;
+    display: inline-block;
+    float: none;
     /* reset the text-align */
-    text-align:center;
+    text-align: center;
     /* inline-block space fix */
-    margin-right:-4px;
+    margin-right: -4px;
 }
 
 .h3 {
-	padding-left: 10px;
+    padding-left: 10px;
 
 }
 
 .comments {
-	width: 80%;
-	position: center;
-	text-align: center; 
-	background:rgba(255,255,255,0,5);
-	border-radius: 10px;
-	color: white;
-	font-size: 18px;
+    width: 80%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
 }
 
 .head {
-	font-size: 25px;
-	text-align: left;
-	color: white;
-	float: center; 
-	padding-left: 25px;
+    font-size: 25px;
+    text-align: left;
+    color: white;
+    padding-left: 25px;
 }
 
 .form {
-	text-align: center;
+    text-align: center;
 }
 
 .add_comment {
-	text-align: center;
-	font-size: 18px;
+    text-align: center;
+    font-size: 18px;
 }
 
 .form a:link {
@@ -353,26 +336,24 @@ a:active {
 }
 
 .comment {
-	color: grey;
-	background:rgba(255,255,255,0.04);
-	border-radius: 5px;
-	font-style: italic;
-	font-size: 18px;
-	text-align: center;
-	margin: 0 auto;
-	position: center;
+    color: grey;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
 }
+
 .comments {
-	width: 80%;
-	position: center;
-	text-align: center; 
-	border-radius: 10px;
-	color: white;
-	font-size: 18px;
+    width: 80%;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+    font-size: 18px;
 }
 
 .author {
-	position: right;
-	font-size: 15px;
-	text-decoration: italic;
+    font-size: 15px;
+    font-style: italic;
 }
