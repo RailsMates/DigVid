@@ -1,44 +1,55 @@
-   <div class = "categories"> 
-	<% Category.all.each do |cat| %>
-		 <%= link_to cat.name, category_path(cat.id) %>
-		<% end %>
+<div class="categories">
+  <% Category.all.each do |cat| %>
+      <%= link_to cat.name, category_path(cat.id) %>
+  <% end %>
 </div><br><br>
 
 
 
 <% @clips.each do |clip| %>
-	<div class = "clip">
-	<b><%= link_to clip.name, clip %></b>
-	<div class = "added_at">Added at <%= clip.created_at.strftime("%d %b. %Y") %></div>
-	<div class="embed-container"><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe></div>
-	<div class = "author"> Added by: <%= link_to clip.user, user_path(clip.user.id) %></div>
-	<div class = "clip-vote">
-		<% if current_user %>
-        <% if LikedClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
-		<div class = "vote"><%= link_to vote_clip_path(clip.id, act: "upvote"), id: "upvote", :remote => true do %>UP<% end %></div>
-		<div class = "vote"><%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %><% end %></div>
-		<div class = "vote"><%= link_to vote_clip_path(clip.id, act: "downvote"), id: "downvote", :remote => true do %>DOWN<% end %></div>
-		<% else %>
-		<%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %><% end %>
-		You've voted for this clip.
-		<% end %>
-		<% else %>
-		<%= content_tag :div, id: "counter_#{clip.id}" do %>Liked: <%= clip.counter %><% end %>		
-		You need to sign up to vote.<br>
-		<% end %>
-	<% if current_user %>
-	  	<% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
- 	 		<br><%= link_to "To favorites", favorite_clip_path(clip, act: "favorite"), :remote => true %><br>
- 	 	<% else %>
- 	 		<br><%= link_to "In favorites", user_favorites_path %><br>   
-		<% end %>
-	<% end %>
-		Categories: <% clip.categories.each do |cat| %>
-		 <%= link_to cat.name, category_path(cat.id)  %>
-		<% end %>
-	</div>
-	</div>
-<br><br>
+    <div class="clip">
+      <b><%= link_to clip.name, clip %></b>
+
+      <div class="added_at">Added at <%= clip.created_at.strftime("%d %b. %Y") %></div>
+      <div class="embed-container">
+        <iframe width="560" height="315" src=<%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="author"> Added by: <%= link_to clip.user, user_path(clip.user.id) %></div>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-centered">
+          <% if current_user %>     
+              <% if LikedClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+                  <%= link_to "UP", vote_clip_path(clip.id, act: "upvote"), id: "upvote", :remote => true%>
+                  <%= content_tag :span, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %>
+                  <% end %>
+                  <%= link_to "DOWN", vote_clip_path(clip.id, act: "downvote"), id: "downvote", :remote => true%>
+              <% else %>
+                  <%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %>
+                  <% end %>
+                  <div class = "voted"> You've voted for this clip. </div>
+              <% end %>
+          <% else %>
+              <%= content_tag :div, id: "counter_#{clip.id}" do %>Liked: <%= clip.counter %>
+              <% end %>
+              <div class = "voted"> You need to sign up to vote. </div>
+          <% end %>
+          <% if current_user %>
+              <% if FavoriteClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+                  <div><%= link_to "To favorites", favorite_clip_path(clip, act: "favorite"),
+                                   id: "fav_#{clip.id}", :remote => true %></div>
+              <% else %>
+                  <div><%= link_to "In favorites", user_favorites_path %></div>
+              <% end %>
+          <% end %>
+          <div class = "voted"> Categories:
+            <% clip.categories.each do |cat| %>
+                <%= link_to cat.name, category_path(cat.id) %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
 <% end %>
-	
+
 <center><%= will_paginate @clips %></center>

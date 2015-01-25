@@ -143,12 +143,12 @@ body {
 	color: #606060;
 }
 
-.clip a:link {
-	color: white;
+.voted a:link {
+	color: grey;
 }
 
-.clip a:visited {
-	color: white;
+.voted a:visited {
+	color: grey;
 }
 
 /* unvisited link */
@@ -240,6 +240,10 @@ a:active {
 
 }
 
+.voted {
+    color: grey;
+    text-decoration: italic;
+}
 .link {
 	text-align: center;
 	font-size: 15px;
@@ -289,4 +293,13 @@ a:active {
 	font-style: italic;
 	width: 100%;
 	margin: 0 auto;
+}
+
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:center;
+    /* inline-block space fix */
+    margin-right:-4px;
 }

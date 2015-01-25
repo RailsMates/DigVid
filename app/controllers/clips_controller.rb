@@ -54,17 +54,10 @@ class ClipsController < ApplicationController
 		act = params[:act]
 		if act == "favorite"
    		current_user.favorites << @clip
-   		respond_to do |format|
-      		format.html { redirect_to :back, notice: "#{@clip.name} added to favorites." }
-      		format.json { head :no_content }
-      	end
    		elsif act == "unfavorite"
-   		current_user.favorites.delete(@clip)	
-   		respond_to do |format|
-      		format.html { redirect_to :root, notice: "#{@clip.name} removed from favorites." }
-      		format.json { head :no_content }
+   		current_user.favorites.delete(@clip)
 		end
-		end
+		render :json => { :success => true}
 	end
 
 	def vote
