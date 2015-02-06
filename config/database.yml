@@ -10,6 +10,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: digVid_production
+  host: localhost
 
 test:
   adapter: sqlite3

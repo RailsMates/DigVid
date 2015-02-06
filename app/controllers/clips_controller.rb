@@ -36,15 +36,15 @@ class ClipsController < ApplicationController
 	end
 
 	def today
-		@clips = Clip.newer_than(1.day).order('counter DESC').page(params[:page])
+		@clips = Clip.newer_than(Date.today).order('counter DESC').page(params[:page])
 	end
 
 	def last_week
-		@clips = Clip.newer_than(1.week).order('counter DESC').page(params[:page])
+		@clips = Clip.newer_than(Date.today-7).order('counter DESC').page(params[:page])
 	end
 
 	def last_month
-		@clips = Clip.newer_than(1.month).order('counter DESC').page(params[:page])
+		@clips = Clip.newer_than(Date.today-30).order('counter DESC').page(params[:page])
 	end
 
 	def show

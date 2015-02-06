@@ -14,15 +14,12 @@ class Clip < ActiveRecord::Base
 
 	belongs_to :user
 
-	# def set_default
-	# 	self[:confirmed] = false
-	# end
 	self.per_page = 10
 
 	# scope :waitings, -> { where(("counter < 10 AND confirmed = ?"), true) }
 	scope :waitings, -> { where("counter < 10 ") }
 	scope :on_main, -> { where("counter >= 10 ") }
-	scope :newer_than, ->(date) { where("created_at >= ?", date) }
+	scope :newer_than, -> (date) { where("created_at >= ?", date) }
 	
 
 end
