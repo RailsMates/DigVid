@@ -81,7 +81,7 @@ config.assets.precompile +=
 %w( #{Rails.root}/vendor/assets/javascripts/active_admin.js.coffee)
 
 config.cache_classes = true
-config.serve_static_assets = true
+config.serve_static_files = true
 config.assets.compile = true
 config.assets.digest = true
 end
