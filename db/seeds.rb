@@ -45,9 +45,9 @@ Clip.create(URL: "https://www.youtube.com/watch?v=d7R7q1lSZfs", counter: rand(0.
 Clip.create(URL: "https://www.youtube.com/watch?v=fUis9yny_lI", counter: rand(0..40), created_at: (rand*30).days.ago, user_id: User.all.sample.id)
 Clip.create(URL: "https://www.youtube.com/watch?v=nCkpzqqog4k", counter: rand(0..40), created_at: (rand*30).days.ago, user_id: User.all.sample.id)
 end
-Clip.update_all(name: "Sample Clip Name")
+Clip.update_all(name: Faker::Book.title)
 
-30.times do
+100.times do
 	ClipCategory.create(clip_id: Clip.all.sample.id, category_id: Category.all.sample.id)
 end
 
@@ -67,4 +67,10 @@ Friendship.create(user_id: User.all.sample.id, friend_id: User.all.sample.id)
 end
 
 p "Friendships created."
+
+1000.times do
+	Comment.create(user_id: User.all.sample.id, comment: Faker::Hacker.say_something_smart)
+end
+
+p "Comments created."
 

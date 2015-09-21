@@ -7,7 +7,7 @@ class ClipsController < ApplicationController
 	end
 
 	def new
-		@clip = Clip.new
+		@clip = Clip.new 
 	end
 
 	def show
@@ -81,7 +81,7 @@ class ClipsController < ApplicationController
 
 	def update
 	end
-
+ 
 	def clip_params
 		params.require(:clip).permit(:name, :counter, :URL, :confirmed, category_ids: [])
 	end

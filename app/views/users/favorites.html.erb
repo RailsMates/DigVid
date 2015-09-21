@@ -3,32 +3,48 @@
 <% if @clips.size == 0 %>
 <%= p "No favorites yet." %>
 <% else %>
-<% @clips.each do |clip| %>
-	<div class = "clip">
-	<b><%= link_to clip.name, clip %></b>
-	<div class = "added_at">Added at <%= clip.created_at.strftime("%d %b. %Y") %></div>
-	<div class="embed-container"><iframe width="560" height="315" src= <%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe></div>
-	<div class = "author"> 	Added by: <%= link_to clip.user, user_path(clip.user.id) %></div>
-	<div class = "clip-vote">
-        <% if LikedClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
-		<div class = "section"><div class = "vote"><%= link_to vote_clip_path(clip.id, act: "upvote"), id: "upvote", :remote => true do %>UP<% end %></div>
-		<div class = "vote"><%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %><% end %></div>
-		<div class = "vote"><%= link_to vote_clip_path(clip.id, act: "downvote"), id: "downvote", :remote => true do %>DOWN<% end %></div></div>
-		<% else %>
-		<%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %><% end %>
-		You've voted for this clip.
-		<% end %>
-	<% if current_user %>
-	  	<br><%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite") %><br>
-	<% end %>
-		Categories: <% clip.categories.each do |cat| %>
-		 <%= link_to cat.name, category_path(cat.id)  %>
-		<% end %>
-	</div>
-	</div>
-<br><br>
-<% end %>
-<% end %>
 
-	
+<% @clips.each do |clip| %>
+  <div class="container">
+    <div class="row">
+      <div class="clip col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+        <b><%= link_to clip.name, clip %></b> 
+      <div class="added_at">Added at <%= clip.created_at.strftime("%d %b. %Y") %></div>
+        <div class="embed-container">
+          <iframe width="560" height="315" src=<%= modifyURL(clip.URL) %> frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="author"> Added by: <%= link_to clip.user, user_path(clip.user.id) %></div>
+        <div class="row">
+          <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 text-centered">
+            <% if current_user %>     
+              <% if LikedClip.where(:user_id => current_user.id, :clip_id => clip.id).blank? %>
+                <%= link_to "UP", vote_clip_path(clip.id, act: "upvote"), id: "upvote", :remote => true%>
+                <%= content_tag :span, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %>
+                  <% end %>
+                <%= link_to "DOWN", vote_clip_path(clip.id, act: "downvote"), id: "downvote", :remote => true%>
+              <% else %>
+                <%= content_tag :div, id: "counter_#{clip.id}" do %> Liked: <%= clip.counter %>
+              <% end %>
+                <div class = "voted"> You've voted for this clip. </div>
+            <% end %>
+            <% else %>
+            <%= content_tag :div, id: "counter_#{clip.id}" do %>Liked: <%= clip.counter %>
+            <% end %>
+            <div class = "voted"> You need to sign up to vote. </div>
+            <% end %>
+          <% if current_user %>
+	  			<br><%= link_to "Remove from favorites", favorite_clip_path(clip, act: "unfavorite") %><br>
+			<% end %>
+          <% clip.categories.each do |cat| %>
+           <span class = "voted" style = "font-size: 16px; padding-left: 10px; padding-right: 10px"= ><%= link_to cat.name, category_path(cat.id) %></span>
+                <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <br><br>
+                <% end %>
+                <% end %>
+
 <center><%= will_paginate @clips %></center>

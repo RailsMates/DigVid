@@ -42,10 +42,6 @@ body {
 
 .clip {
     background-image: url("pattern-872s.png");
-    width: 80%;
-    margin: 0 auto;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
     padding-top: 5px;
     padding-bottom: 5px;
     border-radius: 3px;
@@ -53,8 +49,6 @@ body {
     text-align: center;
     font-size: 18px;
     border: 1px solid #000033;
-    padding-top: 0.8em;
-    padding-bottom: 0.5em;
 }
 
 .videoWrapper {
@@ -265,6 +259,7 @@ a:active {
     text-align: center;
     margin: 0 auto;
     padding-top: 10px;
+    padding-left: 20px;
     padding-bottom: 10px;
     width: 80%;
 }
